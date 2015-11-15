@@ -20,12 +20,6 @@ ImageMagick    http://www.imagemagick.org/script/convert.php
 sudo port install ImageMagick
 ````
 
-Uber Logo
-grab the images from the Uber Press Kit
-first convert an image to gif
-````
-convert uber_logo.gif -transparent white -fuzz 25% uber_logo3.gif
-````
 
 # Data / Desin / Code   Icons 
 Data
