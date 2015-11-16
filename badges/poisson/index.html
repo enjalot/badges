@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <style>
+body {
+  background: #111;
+  margin: 0;
+  padding: 0;
+}
 
 line {
-  stroke: #000;
-  stroke-width: 1.5px;
+  stroke: #efefef;
+  stroke-width: 3.5px;
   stroke-linecap: round;
 }
 
 </style>
 <body>
-<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="../d3.v3.min.js"></script>
 <script>
 
 var width = 1050,
     height = 1500,
-    delay = 2000,
-    duration = 80;
+    delay = 1000,
+    duration = 70;
 
 var sample = poissonDiscSampler(width, height, 10);
 

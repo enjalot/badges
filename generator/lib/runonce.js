@@ -41,8 +41,8 @@ function useDesign(opts) {
   opts.bg = "dark" // can also be "dark"
 }
 function useCode(opts) {
-  opts.delay = 300;
-  opts.frameDelay = 660;
+  opts.delay = 400;
+  opts.frameDelay = 700;
   opts.url = 'http://bl.ocks.org/enjalot/raw/172a233ca131431d3268/'
   opts.bg = "dark" // can also be "dark"
 }
@@ -108,7 +108,11 @@ function take_badge_pic(opts, done){
   page.open(url, function(status){
     //console.log('open page',url);
     console.log('status', status);
+    try {
     console.log("opts", JSON.stringify(opts))
+    }  catch(e) {
+      console.log("JSON PARSE ERRRO")
+    }
 
       setTimeout(function() {
           // Initial frame

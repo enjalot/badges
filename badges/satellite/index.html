@@ -34,7 +34,7 @@ var radius = height / 2 - 5,
 
 var projection = d3.geo.stereographic()
     .scale(260)
-    .translate([width / 2, height / 2])
+    .translate([width / 2, height / 2 + 130])
     .rotate([20,0,60])
     .precision(.1);
 
@@ -127,6 +127,7 @@ d3.json("world-110m.json", function(error, world) {
   var southpole = projection([0,-90]);
   context.fillText("S", southpole[0], southpole[1]);
 
+/*
   // source: http://www.ripublication.com/aasa/aasav3n1_02.pdf
   var collision = projection([97.88,72.51]);
   context.textBaseline = "middle";
@@ -135,13 +136,14 @@ d3.json("world-110m.json", function(error, world) {
 
   context.fillStyle = "#333";
   context.beginPath();
-  context.arc(collision[0], collision[1], 2.5, 0, 2*Math.PI);
+  context.arc(collision[0], collision[1], 5.5, 0, 2*Math.PI);
   context.fill();
 
   context.fillStyle = color("IRIDI");
   context.fillText("Iridium 33 Debris", 0.76*width, 0.25*height-15);
   context.fillStyle = color("COSMO");
   context.fillText("Kosmos 2251 Debris", 0.76*width, 0.25*height);
+  */
 
   d3.text("debris.txt", function(error2, data) {
     if (error2) throw error2;
@@ -175,7 +177,7 @@ d3.json("world-110m.json", function(error, world) {
 
     d3.timer(function(elapsed) {
       var time = new Date(now.getTime() + 120*elapsed);
-      overlay.text("Predicted debris positions at " + timeFormat(time));
+      //overlay.text("Predicted debris positions at " + timeFormat(time));
 
       context3.clearRect(0,0,width,height);
       context3.globalAlpha = .5;
@@ -245,7 +247,7 @@ d3.json("world-110m.json", function(error, world) {
   function drawSat(sat, pos) {
     var name = sat.name;
     var xy = projection([pos.longitude*180/Math.PI, pos.latitude*180/Math.PI]);
-    context2.arc(xy[0],xy[1],2,0,2*Math.PI);
+    context2.arc(xy[0],xy[1],5,0,2*Math.PI);
   };
 });
 
